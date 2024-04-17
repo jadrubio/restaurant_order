@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import MealItem from './MealItem';
 import { MealsApi } from '../api/meals';
 
-const Meals = () => {
+const MealList = () => {
   const [meals, setMeals] = useState([])
 
   useEffect(()=>{
@@ -15,10 +16,10 @@ const Meals = () => {
   
 
   return (
-    <ul className="meals">
-      {meals.map(m => <li key={m.id}>{m.name}</li>)}
+    <ul className="meal-list">
+      {meals.map(m => <MealItem key={m.id} meal={m} />)}
     </ul>
   )
 }
 
-export default Meals
+export default MealList
